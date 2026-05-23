@@ -507,5 +507,19 @@ export default [
       "Introduces dark wisdom"
     ],
     "rarity": "Very Rare"
+  },
+  {
+    "id": "soul-stealer",
+    "name": "Soul Stealer",
+    "alignment": "evil",
+    "description": "A sinister wand that draws the life force from its victims, feeding the wielder with dark power.",
+    "price": 1400,
+    "image": "https://placehold.co/400x400/3d0000/ff4444?text=Soul+Stealer",
+    "magicalProperties": [
+      "Steals life force",
+      "Grants dark power",
+      "Introduces necrotic magic"
+    ],
+    "rarity": "Rare"
   }
 ];

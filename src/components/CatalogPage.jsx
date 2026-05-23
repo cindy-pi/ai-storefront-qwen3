@@ -1,31 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { wands } from '../data/wands';
+import { useCart } from '../context/CartContext';
 import './CatalogPage.css';
 
 const CatalogPage = () => {
-  const [wands, setWands] = useState([]);
   const [filteredWands, setFilteredWands] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { cartItems } = useCart();
 
-  // Simulated wand data - this will be replaced with actual data from issue #2
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   useEffect(() => {
-    // Mock data - will be replaced with real data
-    const mockWands = [
-      { id: 1, name: 'Acacia Wand', alignment: 'good', price: 250, image: 'wand1.jpg', rarity: 'uncommon' },
-      { id: 2, name: 'Oak Wand', alignment: 'neutral', price: 300, image: 'wand2.jpg', rarity: 'common' },
-      { id: 3, name: 'Ebony Wand', alignment: 'evil', price: 400, image: 'wand3.jpg', rarity: 'rare' },
-      { id: 4, name: 'Willow Wand', alignment: 'good', price: 200, image: 'wand4.jpg', rarity: 'uncommon' },
-      { id: 5, name: 'Maple Wand', alignment: 'neutral', price: 350, image: 'wand5.jpg', rarity: 'common' },
-      { id: 6, name: 'Ash Wand', alignment: 'evil', price: 450, image: 'wand6.jpg', rarity: 'rare' },
-      { id: 7, name: 'Hawthorn Wand', alignment: 'good', price: 220, image: 'wand7.jpg', rarity: 'common' },
-      { id: 8, name: 'Poplar Wand', alignment: 'neutral', price: 280, image: 'wand8.jpg', rarity: 'uncommon' },
-      { id: 9, name: 'Yew Wand', alignment: 'evil', price: 500, image: 'wand9.jpg', rarity: 'very-rare' },
-    ];
-    
-    setWands(mockWands);
-    setFilteredWands(mockWands);
+    setFilteredWands(wands);
   }, []);
 
   useEffect(() => {
@@ -43,7 +34,7 @@ const CatalogPage = () => {
     }
     
     setFilteredWands(result);
-  }, [selectedCategory, searchTerm, wands]);
+  }, [selectedCategory, searchTerm]);
 
   const getAlignmentClass = (alignment) => {
     switch (alignment) {
@@ -65,30 +56,6 @@ const CatalogPage = () => {
     }
   };
 
-  const getRarityLabel = (rarity) => {
-    switch (rarity) {
-      case 'common': return 'Common';
-      case 'uncommon': return 'Uncommon';
-      case 'rare': return 'Rare';
-      case 'very-rare': return 'Very Rare';
-      case 'legendary': return 'Legendary';
-      default: return rarity;
-    }
-  };
-
-  const getAlignmentLabel = (alignment) => {
-    switch (alignment) {
-      case 'good': return 'Good';
-      case 'neutral': return 'Neutral';
-      case 'evil': return 'Evil';
-      default: return alignment;
-    }
-  };
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
   return (
     <div className="catalog-page">
       <nav className="navbar">
@@ -102,7 +69,7 @@ const CatalogPage = () => {
           <div className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
             <Link to="/">Home</Link>
             <Link to="/catalog">Catalog</Link>
-            <Link to="/cart">Cart</Link>
+            <Link to="/cart">Cart ({cartItems.length})</Link>
           </div>
         </div>
       </nav>
@@ -157,6 +124,9 @@ const CatalogPage = () => {
         </div>
         
         <div className="wand-grid">
+          <div className="wand-count">
+            Showing {filteredWands.length} of {wands.length} wands
+          </div>
           {filteredWands.length > 0 ? (
             filteredWands.map(wand => (
               <div key={wand.id} className="wand-card">
@@ -164,10 +134,10 @@ const CatalogPage = () => {
                 <div className="wand-info">
                   <h3>{wand.name}</h3>
                   <span className={`rarity-badge ${getRarityClass(wand.rarity)}`}>
-                    {getRarityLabel(wand.rarity)}
+                    {wand.rarity.charAt(0).toUpperCase() + wand.rarity.slice(1)}
                   </span>
                   <span className={`alignment-badge ${getAlignmentClass(wand.alignment)}`}>
-                    {getAlignmentLabel(wand.alignment)}
+                    {wand.alignment.charAt(0).toUpperCase() + wand.alignment.slice(1)}
                   </span>
                   <p className="wand-price">GP {wand.price}</p>
                   <Link to={`/product/${wand.id}`} className="view-details-button">

@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
+import { wands } from '../data/wands';
 import './HomePage.css';
 
 const HomePage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [goldBalance, setGoldBalance] = useState(1000);
+  const { cartItems, addToCart } = useCart();
+  const [featuredWands, setFeaturedWands] = useState([]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -15,7 +19,35 @@ const HomePage = () => {
     if (balance) {
       setGoldBalance(parseInt(balance));
     }
+    
+    // Get 6 random wands for featured section
+    const shuffled = [...wands].sort(() => 0.5 - Math.random());
+    setFeaturedWands(shuffled.slice(0, 6));
   }, []);
+
+  const getAlignmentClass = (alignment) => {
+    switch (alignment) {
+      case 'good': return 'good-alignment';
+      case 'neutral': return 'neutral-alignment';
+      case 'evil': return 'evil-alignment';
+      default: return '';
+    }
+  };
+
+  const getRarityClass = (rarity) => {
+    switch (rarity) {
+      case 'common': return 'common-rarity';
+      case 'uncommon': return 'uncommon-rarity';
+      case 'rare': return 'rare-rarity';
+      case 'very-rare': return 'very-rare-rarity';
+      case 'legendary': return 'legendary-rarity';
+      default: return 'common-rarity';
+    }
+  };
+
+  const handleAddToCart = (wand) => {
+    addToCart(wand);
+  };
 
   return (
     <div className="home-page">
@@ -33,7 +65,7 @@ const HomePage = () => {
           <div className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
             <Link to="/">Home</Link>
             <Link to="/catalog">Catalog</Link>
-            <Link to="/cart">Cart</Link>
+            <Link to="/cart">Cart ({cartItems.length})</Link>
           </div>
         </div>
       </nav>
@@ -52,22 +84,22 @@ const HomePage = () => {
         <section className="featured-section">
           <h2>Featured Wands</h2>
           <div className="featured-wands">
-            {/* These would be populated with actual data from issue #2 */}
-            <div className="wand-card">
-              <div className="wand-image-placeholder">Wand Image</div>
-              <h3>Acacia Wand</h3>
-              <p>Good-aligned wand with 10-inch acacia wood</p>
-            </div>
-            <div className="wand-card">
-              <div className="wand-image-placeholder">Wand Image</div>
-              <h3>Oak Wand</h3>
-              <p>Neutral-aligned wand with 12-inch oak wood</p>
-            </div>
-            <div className="wand-card">
-              <div className="wand-image-placeholder">Wand Image</div>
-              <h3>Ebony Wand</h3>
-              <p>Evil-aligned wand with 9-inch ebony wood</p>
-            </div>
+            {featuredWands.map(wand => (
+              <div key={wand.id} className="wand-card">
+                <div className="wand-image-placeholder">Wand Image</div>
+                <h3>{wand.name}</h3>
+                <span className={`rarity-badge ${getRarityClass(wand.rarity)}`}>
+                  {wand.rarity}
+                </span>
+                <span className={`alignment-badge ${getAlignmentClass(wand.alignment)}`}>
+                  {wand.alignment.charAt(0).toUpperCase() + wand.alignment.slice(1)}
+                </span>
+                <p className="wand-price">GP {wand.price}</p>
+                <button className="add-to-cart-button" onClick={() => handleAddToCart(wand)}>
+                  Add to Cart
+                </button>
+              </div>
+            ))}
           </div>
         </section>
       </main>

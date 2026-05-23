@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
+import { wands } from '../data/wands';
 import './ProductDetail.css';
 
 const ProductDetail = () => {
@@ -8,31 +10,15 @@ const ProductDetail = () => {
   const [quantity, setQuantity] = useState(1);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
+  const { addToCart } = useCart();
 
-  // Mock product data - this will be replaced with actual data from issue #2
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   useEffect(() => {
-    // Mock data - will be replaced with real data
-    const mockProduct = {
-      id: parseInt(id),
-      name: 'Acacia Wand',
-      alignment: 'good',
-      price: 250,
-      image: 'wand1.jpg',
-      description: 'A magnificent wand made from rare acacia wood, perfectly balanced and enchanted with powerful magical properties.',
-      woodType: 'Acacia',
-      core: 'Phoenix feather',
-      length: '10 inches',
-      flexibility: 'Flexible',
-      history: 'This wand was crafted by renowned wandmaker Garrick Ollivander and was once owned by a great wizard who used it to cast protective spells.',
-      properties: [
-        'Enhances charm magic',
-        'Improves transfiguration skills',
-        'Boosts defensive spells'
-      ],
-      rarity: 'uncommon'
-    };
-    
-    setProduct(mockProduct);
+    const foundWand = wands.find(wand => wand.id === parseInt(id));
+    setProduct(foundWand);
   }, [id]);
 
   const getAlignmentClass = (alignment) => {
@@ -55,33 +41,12 @@ const ProductDetail = () => {
     }
   };
 
-  const getAlignmentLabel = (alignment) => {
-    switch (alignment) {
-      case 'good': return 'Good';
-      case 'neutral': return 'Neutral';
-      case 'evil': return 'Evil';
-      default: return alignment;
-    }
-  };
-
-  const getRarityLabel = (rarity) => {
-    switch (rarity) {
-      case 'common': return 'Common';
-      case 'uncommon': return 'Uncommon';
-      case 'rare': return 'Rare';
-      case 'very-rare': return 'Very Rare';
-      case 'legendary': return 'Legendary';
-      default: return rarity;
-    }
-  };
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
   const handleAddToCart = () => {
-    setIsAdded(true);
-    setTimeout(() => setIsAdded(false), 2000);
+    if (product) {
+      addToCart(product);
+      setIsAdded(true);
+      setTimeout(() => setIsAdded(false), 2000);
+    }
   };
 
   if (!product) {
@@ -126,10 +91,10 @@ const ProductDetail = () => {
           <div className="product-details">
             <div className="product-meta">
               <span className={`rarity-badge ${getRarityClass(product.rarity)}`}>
-                {getRarityLabel(product.rarity)}
+                {product.rarity.charAt(0).toUpperCase() + product.rarity.slice(1)}
               </span>
               <span className={`alignment-badge ${getAlignmentClass(product.alignment)}`}>
-                {getAlignmentLabel(product.alignment)}
+                {product.alignment.charAt(0).toUpperCase() + product.alignment.slice(1)}
               </span>
               <span className="product-price">GP {product.price}</span>
             </div>

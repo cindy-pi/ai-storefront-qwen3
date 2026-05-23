@@ -10,7 +10,7 @@ import { GoldProvider } from './context/GoldContext';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/ai-storefront-qwen3">
       <CartProvider>
         <GoldProvider>
           <div className="App">

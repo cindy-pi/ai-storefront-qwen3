@@ -6,6 +6,8 @@ const ProductDetail = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAdded, setIsAdded] = useState(false);
 
   // Mock product data - this will be replaced with actual data from issue #2
   useEffect(() => {
@@ -26,7 +28,8 @@ const ProductDetail = () => {
         'Enhances charm magic',
         'Improves transfiguration skills',
         'Boosts defensive spells'
-      ]
+      ],
+      rarity: 'uncommon'
     };
     
     setProduct(mockProduct);
@@ -41,6 +44,17 @@ const ProductDetail = () => {
     }
   };
 
+  const getRarityClass = (rarity) => {
+    switch (rarity) {
+      case 'common': return 'common-rarity';
+      case 'uncommon': return 'uncommon-rarity';
+      case 'rare': return 'rare-rarity';
+      case 'very-rare': return 'very-rare-rarity';
+      case 'legendary': return 'legendary-rarity';
+      default: return 'common-rarity';
+    }
+  };
+
   const getAlignmentLabel = (alignment) => {
     switch (alignment) {
       case 'good': return 'Good';
@@ -48,6 +62,26 @@ const ProductDetail = () => {
       case 'evil': return 'Evil';
       default: return alignment;
     }
+  };
+
+  const getRarityLabel = (rarity) => {
+    switch (rarity) {
+      case 'common': return 'Common';
+      case 'uncommon': return 'Uncommon';
+      case 'rare': return 'Rare';
+      case 'very-rare': return 'Very Rare';
+      case 'legendary': return 'Legendary';
+      default: return rarity;
+    }
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleAddToCart = () => {
+    setIsAdded(true);
+    setTimeout(() => setIsAdded(false), 2000);
   };
 
   if (!product) {
@@ -60,6 +94,22 @@ const ProductDetail = () => {
 
   return (
     <div className="product-detail">
+      <nav className="navbar">
+        <div className="navbar-container">
+          <Link to="/" className="navbar-brand">Fizban's Wands</Link>
+          <div className="hamburger" onClick={toggleMenu}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
+            <Link to="/">Home</Link>
+            <Link to="/catalog">Catalog</Link>
+            <Link to="/cart">Cart</Link>
+          </div>
+        </div>
+      </nav>
+      
       <div className="product-detail-header">
         <Link to="/catalog" className="back-link">
           ← Back to Catalog
@@ -75,6 +125,9 @@ const ProductDetail = () => {
         <div className="product-info">
           <div className="product-details">
             <div className="product-meta">
+              <span className={`rarity-badge ${getRarityClass(product.rarity)}`}>
+                {getRarityLabel(product.rarity)}
+              </span>
               <span className={`alignment-badge ${getAlignmentClass(product.alignment)}`}>
                 {getAlignmentLabel(product.alignment)}
               </span>
@@ -127,8 +180,8 @@ const ProductDetail = () => {
                   onChange={(e) => setQuantity(parseInt(e.target.value) || 1)}
                 />
               </div>
-              <button className="add-to-cart-button">
-                Add to Cart
+              <button className={`add-to-cart-button ${isAdded ? 'added' : ''}`} onClick={handleAddToCart}>
+                {isAdded ? 'Added!' : 'Add to Cart'}
               </button>
             </div>
           </div>

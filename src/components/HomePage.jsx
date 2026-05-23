@@ -1,10 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './HomePage.css';
 
 const HomePage = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <div className="home-page">
+      {/* Navigation Bar */}
+      <nav className="navbar">
+        <div className="navbar-brand">Fizban's Wands</div>
+        <button className="navbar-toggle" onClick={toggleMenu}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul className={`navbar-nav ${isMenuOpen ? 'active' : ''}`}>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/catalog">Catalog</Link></li>
+        </ul>
+      </nav>
+      
       <header className="home-header">
         <h1>Fizban's Wands</h1>
         <p>Discover the finest magical wands from around the world</p>

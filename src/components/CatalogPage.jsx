@@ -1,113 +1,116 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './CatalogPage.css';
 
-const CatalogPage = () => {
-  const [wands, setWands] = useState([]);
-  const [filteredWands, setFilteredWands] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState('all');
+const CatalogPage = ({ wands }) => {
+  const [selectedAlignment, setSelectedAlignment] = useState('all');
+  const [selectedRarity, setSelectedRarity] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Simulated wand data - this will be replaced with actual data from issue #2
-  useEffect(() => {
-    // Mock data - will be replaced with real data
-    const mockWands = [
-      { id: 1, name: 'Acacia Wand', alignment: 'good', price: 250, image: 'wand1.jpg' },
-      { id: 2, name: 'Oak Wand', alignment: 'neutral', price: 300, image: 'wand2.jpg' },
-      { id: 3, name: 'Ebony Wand', alignment: 'evil', price: 400, image: 'wand3.jpg' },
-      { id: 4, name: 'Willow Wand', alignment: 'good', price: 200, image: 'wand4.jpg' },
-      { id: 5, name: 'Maple Wand', alignment: 'neutral', price: 350, image: 'wand5.jpg' },
-      { id: 6, name: 'Ash Wand', alignment: 'evil', price: 450, image: 'wand6.jpg' },
-      { id: 7, name: 'Hawthorn Wand', alignment: 'good', price: 220, image: 'wand7.jpg' },
-      { id: 8, name: 'Poplar Wand', alignment: 'neutral', price: 280, image: 'wand8.jpg' },
-      { id: 9, name: 'Yew Wand', alignment: 'evil', price: 500, image: 'wand9.jpg' },
-    ];
-    
-    setWands(mockWands);
-    setFilteredWands(mockWands);
-  }, []);
+  const alignments = ['all', 'good', 'neutral', 'evil'];
+  const rarities = ['all', 'common', 'uncommon', 'rare', 'very rare', 'legendary'];
 
-  useEffect(() => {
-    let result = wands;
+  const filteredWands = wands.filter(wand => {
+    const matchesAlignment = selectedAlignment === 'all' || wand.alignment === selectedAlignment;
+    const matchesRarity = selectedRarity === 'all' || wand.rarity === selectedRarity;
+    const matchesSearch = wand.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                          wand.description.toLowerCase().includes(searchTerm.toLowerCase());
     
-    if (selectedCategory !== 'all') {
-      result = result.filter(wand => wand.alignment === selectedCategory);
-    }
-    
-    if (searchTerm) {
-      const term = searchTerm.toLowerCase();
-      result = result.filter(wand => 
-        wand.name.toLowerCase().includes(term)
-      );
-    }
-    
-    setFilteredWands(result);
-  }, [selectedCategory, searchTerm, wands]);
+    return matchesAlignment && matchesRarity && matchesSearch;
+  });
 
-  const getAlignmentClass = (alignment) => {
-    switch (alignment) {
-      case 'good': return 'good-alignment';
-      case 'neutral': return 'neutral-alignment';
-      case 'evil': return 'evil-alignment';
-      default: return '';
-    }
+  const handleAlignmentFilter = (alignment) => {
+    setSelectedAlignment(alignment);
   };
 
-  const getAlignmentLabel = (alignment) => {
-    switch (alignment) {
-      case 'good': return 'Good';
-      case 'neutral': return 'Neutral';
-      case 'evil': return 'Evil';
-      default: return alignment;
+  const handleRarityFilter = (rarity) => {
+    setSelectedRarity(rarity);
+  };
+
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const getRarityBadgeClass = (rarity) => {
+    switch(rarity) {
+      case 'common': return 'common-rarity';
+      case 'uncommon': return 'uncommon-rarity';
+      case 'rare': return 'rare-rarity';
+      case 'very rare': return 'very-rare-rarity';
+      case 'legendary': return 'legendary-rarity';
+      default: return 'common-rarity';
     }
   };
 
   return (
     <div className="catalog-page">
-      <header className="catalog-header">
+      <div className="catalog-header">
         <h1>Wand Catalog</h1>
-        <p>Browse our magical collection</p>
-      </header>
+        <p>Explore our collection of enchanted wands</p>
+      </div>
       
-      <main className="catalog-main">
+      <div className="catalog-main">
+        {/* Filters section */}
         <div className="catalog-filters">
           <div className="filter-section">
-            <label htmlFor="category-filter">Category:</label>
-            <select 
-              id="category-filter"
-              value={selectedCategory} 
-              onChange={(e) => setSelectedCategory(e.target.value)}
-            >
-              <option value="all">All Alignments</option>
-              <option value="good">Good</option>
-              <option value="neutral">Neutral</option>
-              <option value="evil">Evil</option>
-            </select>
+            <label>Search:</label>
+            <input 
+              type="text" 
+              placeholder="Search wands..." 
+              value={searchTerm}
+              onChange={handleSearch}
+            />
           </div>
           
           <div className="filter-section">
-            <label htmlFor="search-filter">Search:</label>
-            <input
-              id="search-filter"
-              type="text"
-              placeholder="Search wands..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
+            <label>Alignment:</label>
+            <div className="filter-buttons">
+              {alignments.map(alignment => (
+                <button
+                  key={alignment}
+                  className={`filter-button ${selectedAlignment === alignment ? 'active' : ''}`}
+                  onClick={() => handleAlignmentFilter(alignment)}
+                >
+                  {alignment.charAt(0).toUpperCase() + alignment.slice(1)}
+                </button>
+              ))}
+            </div>
+          </div>
+          
+          <div className="filter-section">
+            <label>Rarity:</label>
+            <div className="filter-buttons">
+              {rarities.map(rarity => (
+                <button
+                  key={rarity}
+                  className={`filter-button ${selectedRarity === rarity ? 'active' : ''}`}
+                  onClick={() => handleRarityFilter(rarity)}
+                >
+                  {rarity.charAt(0).toUpperCase() + rarity.slice(1)}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
         
+        {/* Wand grid */}
         <div className="wand-grid">
           {filteredWands.length > 0 ? (
             filteredWands.map(wand => (
-              <div key={wand.id} className="wand-card">
-                <div className="wand-image-placeholder">Wand Image</div>
+              <div key={wand.id} className={`wand-card ${wand.alignment}-alignment`}>
+                <div className="wand-image-placeholder">
+                  Wand Image
+                </div>
                 <div className="wand-info">
                   <h3>{wand.name}</h3>
-                  <span className={`alignment-badge ${getAlignmentClass(wand.alignment)}`}>
-                    {getAlignmentLabel(wand.alignment)}
-                  </span>
-                  <p className="wand-price">GP {wand.price}</p>
+                  <div className="alignment-badge {wand.alignment}-alignment">
+                    {wand.alignment.charAt(0).toUpperCase() + wand.alignment.slice(1)}
+                  </div>
+                  <div className="rarity-badge {getRarityBadgeClass(wand.rarity)}">
+                    {wand.rarity}
+                  </div>
+                  <p>{wand.description}</p>
+                  <div className="wand-price">{wand.price} GP</div>
                   <Link to={`/product/${wand.id}`} className="view-details-button">
                     View Details
                   </Link>
@@ -115,10 +118,12 @@ const CatalogPage = () => {
               </div>
             ))
           ) : (
-            <p className="no-wands-found">No wands found matching your criteria.</p>
+            <div className="no-wands-found">
+              No wands match your current filters.
+            </div>
           )}
         </div>
-      </main>
+      </div>
     </div>
   );
 };

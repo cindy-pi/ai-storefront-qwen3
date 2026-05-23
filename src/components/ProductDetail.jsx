@@ -1,136 +1,83 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import './ProductDetail.css';
 
-const ProductDetail = () => {
+const ProductDetail = ({ wands }) => {
   const { id } = useParams();
-  const [product, setProduct] = useState(null);
+  const wand = wands.find(w => w.id === parseInt(id));
   const [quantity, setQuantity] = useState(1);
+  const [isAdded, setIsAdded] = useState(false);
 
-  // Mock product data - this will be replaced with actual data from issue #2
-  useEffect(() => {
-    // Mock data - will be replaced with real data
-    const mockProduct = {
-      id: parseInt(id),
-      name: 'Acacia Wand',
-      alignment: 'good',
-      price: 250,
-      image: 'wand1.jpg',
-      description: 'A magnificent wand made from rare acacia wood, perfectly balanced and enchanted with powerful magical properties.',
-      woodType: 'Acacia',
-      core: 'Phoenix feather',
-      length: '10 inches',
-      flexibility: 'Flexible',
-      history: 'This wand was crafted by renowned wandmaker Garrick Ollivander and was once owned by a great wizard who used it to cast protective spells.',
-      properties: [
-        'Enhances charm magic',
-        'Improves transfiguration skills',
-        'Boosts defensive spells'
-      ]
-    };
-    
-    setProduct(mockProduct);
-  }, [id]);
-
-  const getAlignmentClass = (alignment) => {
-    switch (alignment) {
-      case 'good': return 'good-alignment';
-      case 'neutral': return 'neutral-alignment';
-      case 'evil': return 'evil-alignment';
-      default: return '';
-    }
-  };
-
-  const getAlignmentLabel = (alignment) => {
-    switch (alignment) {
-      case 'good': return 'Good';
-      case 'neutral': return 'Neutral';
-      case 'evil': return 'Evil';
-      default: return alignment;
-    }
-  };
-
-  if (!product) {
+  if (!wand) {
     return (
-      <div className="product-detail">
-        <p>Loading product details...</p>
+      <div className="product-detail-page">
+        <div className="not-found">
+          <h2>Wand Not Found</h2>
+          <p>The wand you're looking for doesn't exist in our collection.</p>
+          <Link to="/catalog" className="cta-button">Browse Catalog</Link>
+        </div>
       </div>
     );
   }
 
+  const handleAddToCart = () => {
+    setIsAdded(true);
+    setTimeout(() => setIsAdded(false), 2000);
+  };
+
+  const getRarityBadgeClass = (rarity) => {
+    switch(rarity) {
+      case 'common': return 'common-rarity';
+      case 'uncommon': return 'uncommon-rarity';
+      case 'rare': return 'rare-rarity';
+      case 'very rare': return 'very-rare-rarity';
+      case 'legendary': return 'legendary-rarity';
+      default: return 'common-rarity';
+    }
+  };
+
   return (
-    <div className="product-detail">
-      <div className="product-detail-header">
-        <Link to="/catalog" className="back-link">
-          ← Back to Catalog
-        </Link>
-        <h1>{product.name}</h1>
-      </div>
-      
-      <div className="product-detail-content">
+    <div className="product-detail-page">
+      <div className="product-detail-container">
         <div className="product-image">
-          <div className="product-image-placeholder">Wand Image</div>
+          <div className="wand-image-placeholder">
+            Wand Image
+          </div>
         </div>
         
         <div className="product-info">
-          <div className="product-details">
-            <div className="product-meta">
-              <span className={`alignment-badge ${getAlignmentClass(product.alignment)}`}>
-                {getAlignmentLabel(product.alignment)}
-              </span>
-              <span className="product-price">GP {product.price}</span>
+          <h1 className="product-title">{wand.name}</h1>
+          <div className="alignment-badge {wand.alignment}-alignment">
+            {wand.alignment.charAt(0).toUpperCase() + wand.alignment.slice(1)}
+          </div>
+          <div className="rarity-badge {getRarityBadgeClass(wand.rarity)}">
+            {wand.rarity}
+          </div>
+          
+          <p className="product-description">{wand.description}</p>
+          
+          <div className="product-meta">
+            <div className="product-price">{wand.price} GP</div>
+            <div className="product-quantity">
+              <label htmlFor="quantity">Quantity:</label>
+              <input 
+                type="number" 
+                id="quantity"
+                min="1" 
+                value={quantity} 
+                onChange={(e) => setQuantity(parseInt(e.target.value) || 1)}
+              />
             </div>
-            
-            <p className="product-description">{product.description}</p>
-            
-            <div className="product-specs">
-              <div className="spec">
-                <span className="spec-label">Wood Type:</span>
-                <span className="spec-value">{product.woodType}</span>
-              </div>
-              <div className="spec">
-                <span className="spec-label">Core:</span>
-                <span className="spec-value">{product.core}</span>
-              </div>
-              <div className="spec">
-                <span className="spec-label">Length:</span>
-                <span className="spec-value">{product.length}</span>
-              </div>
-              <div className="spec">
-                <span className="spec-label">Flexibility:</span>
-                <span className="spec-value">{product.flexibility}</span>
-              </div>
-            </div>
-            
-            <div className="product-history">
-              <h3>Wand History</h3>
-              <p>{product.history}</p>
-            </div>
-            
-            <div className="product-properties">
-              <h3>Magical Properties</h3>
-              <ul>
-                {product.properties.map((property, index) => (
-                  <li key={index}>{property}</li>
-                ))}
-              </ul>
-            </div>
-            
-            <div className="product-controls">
-              <div className="quantity-control">
-                <label htmlFor="quantity">Quantity:</label>
-                <input 
-                  type="number" 
-                  id="quantity"
-                  min="1" 
-                  value={quantity} 
-                  onChange={(e) => setQuantity(parseInt(e.target.value) || 1)}
-                />
-              </div>
-              <button className="add-to-cart-button">
-                Add to Cart
-              </button>
-            </div>
+          </div>
+          
+          <div className="product-actions">
+            <button 
+              className={`add-to-cart-button ${isAdded ? 'added' : ''}`}
+              onClick={handleAddToCart}
+            >
+              {isAdded ? 'Added to Cart! ✨' : 'Add to Cart'}
+            </button>
+            <Link to="/catalog" className="back-button">← Back to Catalog</Link>
           </div>
         </div>
       </div>

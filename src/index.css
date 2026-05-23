@@ -1,14 +1,43 @@
+/* Fantasy Theme Colors */
+:root {
+  --primary-bg: #0d0d1a;
+  --secondary-bg: #1a0a2e;
+  --accent-gold: #ffd700;
+  --accent-gold-dark: #c9a227;
+  --text-color: #f0e6d3;
+  --good-alignment: #2d6a4f;
+  --good-alignment-light: #52b788;
+  --neutral-alignment: #6c757d;
+  --neutral-alignment-light: #adb5bd;
+  --evil-alignment: #8b0000;
+  --evil-alignment-light: #dc143c;
+  --common-rarity: #6c757d;
+  --uncommon-rarity: #2d6a4f;
+  --rare-rarity: #1e3a8a;
+  --very-rare-rarity: #7e22ce;
+  --legendary-rarity: #d97706;
+  --cart-badge-color: #ffd700;
+  --cart-badge-bg: #1a0a2e;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:wght@400;700&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Playfair Display', serif;
+  background-color: var(--primary-bg);
+  color: var(--text-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f5f5f5;
+  line-height: 1.6;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Add smooth transitions for all interactive elements */
+* {
+  transition: all 0.3s ease;
 }

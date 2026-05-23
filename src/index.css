@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
+
 :root {
   --primary-bg: #0d0d1a;
   --secondary-bg: #1a0a2e;
@@ -20,8 +22,6 @@
   --crimson-glow: 0 0 10px rgba(139, 0, 0, 0.5);
   --page-glow: 0 0 20px rgba(255, 215, 0, 0.2);
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
 
 body {
   margin: 0;

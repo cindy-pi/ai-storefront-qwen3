@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { wands } from '../data/wands';
 
 const CartContext = createContext();
 
@@ -57,7 +58,10 @@ export const CartProvider = ({ children }) => {
   };
 
   const cartTotal = cartItems.reduce((total, item) => {
-    // We'll get the wand data to calculate the total
+    const wand = wands.find(w => w.id === item.wandId);
+    if (wand) {
+      return total + (wand.price * item.quantity);
+    }
     return total;
   }, 0);
 

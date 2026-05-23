@@ -1,525 +1,516 @@
+/**
+ * Seed data for Fizban's Wands product catalog
+ * 36 wands across Good, Neutral, and Evil alignments
+ */
+
 export default [
-  // Good Wands
+  // Good Alignment Wands
   {
-    "id": "staff-of-solinari",
-    "name": "Staff of Solinari",
-    "alignment": "good",
-    "description": "A staff of pure light, crafted from the heartwood of a tree that grew under the watchful eye of Solinari. It radiates warmth and healing light.",
-    "price": 1200,
-    "image": "https://placehold.co/400x400/2d6a4f/ffd700?text=Staff+of+Solinari",
-    "magicalProperties": [
+    id: "staff-of-solinari",
+    name: "Staff of Solinari",
+    alignment: "good",
+    description: "A brilliant staff that glows with the light of the sun. When wielded by a good-aligned character, it emits warm golden light and grants the bearer enhanced healing abilities.",
+    price: 1250,
+    image: "https://placehold.co/400x400/2d6a4f/ffd700?text=Staff+of+Solinari",
+    magicalProperties: [
       "Emits warm golden light",
       "Grants +2 to healing spells",
       "Speaks in riddles when activated"
     ],
-    "rarity": "Rare"
+    rarity: "Very Rare"
   },
   {
-    "id": "scepter-of-lunitari",
-    "name": "Scepter of Lunitari",
-    "alignment": "good",
-    "description": "A mystical scepter forged from moonstone and silver, embodying the wisdom and clarity of Lunitari. It enhances magical understanding.",
-    "price": 850,
-    "image": "https://placehold.co/400x400/2d6a4f/ffd700?text=Scepter+of+Lunitari",
-    "magicalProperties": [
-      "Enhances magical intelligence",
-      "Improves spell analysis",
-      "Provides clear visions in darkness"
+    id: "wand-of-lunitari",
+    name: "Wand of Lunitari",
+    alignment: "good",
+    description: "A wand imbued with the power of the moon, this artifact grants its wielder protection and guidance during dark times.",
+    price: 850,
+    image: "https://placehold.co/400x400/2d6a4f/ffd700?text=Wand+of+Lunitari",
+    magicalProperties: [
+      "Provides protection from evil",
+      "Enhances night vision",
+      "Grants resistance to charm effects"
     ],
-    "rarity": "Rare"
+    rarity: "Rare"
   },
   {
-    "id": "wand-of-nuitari",
-    "name": "Wand of Nuitari",
-    "alignment": "good",
-    "description": "A delicate wand carved from nightwood, resonating with the protective energy of Nuitari. It grants its wielder enhanced defense.",
-    "price": 600,
-    "image": "https://placehold.co/400x400/2d6a4f/ffd700?text=Wand+of+Nuitari",
-    "magicalProperties": [
-      "Strengthens protective magic",
-      "Grants +1 to saving throws",
-      "Protects against harmful magic"
+    id: "rod-of-nuitari",
+    name: "Rod of Nuitari",
+    alignment: "good",
+    description: "A staff of celestial power that channels the wisdom of ancient dragons and celestial beings.",
+    price: 1800,
+    image: "https://placehold.co/400x400/2d6a4f/ffd700?text=Rod+of+Nuitari",
+    magicalProperties: [
+      "Enhances wisdom and knowledge",
+      "Grants visions of future events",
+      "Allows communication with celestial beings"
     ],
-    "rarity": "Uncommon"
+    rarity: "Legendary"
   },
   {
-    "id": "crystal-of-dragonfire",
-    "name": "Crystal of Dragonfire",
-    "alignment": "good",
-    "description": "A glowing crystal that channels the power of ancient dragons, representing the noble and protective aspects of dragon-kind.",
-    "price": 1500,
-    "image": "https://placehold.co/400x400/2d6a4f/ffd700?text=Crystal+of+Dragonfire",
-    "magicalProperties": [
-      "Emits protective dragon aura",
-      "Grants +2 to dragon-related spells",
-      "Boosts magical resistance"
+    id: "scepter-of-light",
+    name: "Scepter of Light",
+    alignment: "good",
+    description: "A symbol of justice that radiates pure light, capable of dispelling darkness and evil magic.",
+    price: 950,
+    image: "https://placehold.co/400x400/2d6a4f/ffd700?text=Scepter+of+Light",
+    magicalProperties: [
+      "Dispels evil magic",
+      "Provides protection from undead",
+      "Creates a barrier of light"
     ],
-    "rarity": "Very Rare"
+    rarity: "Rare"
   },
   {
-    "id": "wand-of-healing-roots",
-    "name": "Wand of Healing Roots",
-    "alignment": "good",
-    "description": "A wand made from intertwining roots, imbued with the healing powers of the forest. It is used by druids and healers.",
-    "price": 700,
-    "image": "https://placehold.co/400x400/2d6a4f/ffd700?text=Wand+of+Healing+Roots",
-    "magicalProperties": [
-      "Enhances healing magic",
-      "Grants +1 to natural healing",
-      "Provides medicinal properties"
+    id: "crystal-of-the-great-gnome",
+    name: "Crystal of the Great Gnome",
+    alignment: "good",
+    description: "A magical crystal that grants wisdom and understanding, particularly useful for those who seek knowledge.",
+    price: 350,
+    image: "https://placehold.co/400x400/2d6a4f/ffd700?text=Crystal+of+Gnome",
+    magicalProperties: [
+      "Increases intelligence",
+      "Enhances understanding of spoken languages",
+      "Grants access to ancient wisdom"
     ],
-    "rarity": "Uncommon"
+    rarity: "Uncommon"
   },
   {
-    "id": "mace-of-truth",
-    "name": "Mace of Truth",
-    "alignment": "good",
-    "description": "A noble weapon that reveals hidden lies and brings justice to those who seek truth. It resonates with the principles of good.",
-    "price": 1300,
-    "image": "https://placehold.co/400x400/2d6a4f/ffd700?text=Mace+of+Truth",
-    "magicalProperties": [
-      "Reveals hidden truths",
-      "Grants +2 to illusion detection",
-      "Strengthens noble magical forces"
+    id: "staff-of-the-golden-dragon",
+    name: "Staff of the Golden Dragon",
+    alignment: "good",
+    description: "A staff that channels the power of ancient golden dragons, bringing prosperity and protection.",
+    price: 1600,
+    image: "https://placehold.co/400x400/2d6a4f/ffd700?text=Staff+of+Gold+Dragon",
+    magicalProperties: [
+      "Grants resistance to fire",
+      "Provides prosperity blessings",
+      "Enhances leadership abilities"
     ],
-    "rarity": "Rare"
+    rarity: "Very Rare"
   },
   {
-    "id": "orb-of-might",
-    "name": "Orb of Might",
-    "alignment": "good",
-    "description": "A powerful orb that amplifies the strength and courage of its wielder, bringing forth the might of the righteous.",
-    "price": 1800,
-    "image": "https://placehold.co/400x400/2d6a4f/ffd700?text=Orb+of+Might",
-    "magicalProperties": [
-      "Increases physical strength",
-      "Grants +2 to melee attacks",
-      "Encourages heroic deeds"
+    id: "wand-of-the-dragon-sage",
+    name: "Wand of the Dragon Sage",
+    alignment: "good",
+    description: "A powerful wand that allows the wielder to understand ancient dragon lore and communicate with dragons.",
+    price: 1100,
+    image: "https://placehold.co/400x400/2d6a4f/ffd700?text=Wand+of+Dragon+Lore",
+    magicalProperties: [
+      "Allows dragon communication",
+      "Grants knowledge of ancient lore",
+      "Enhances magical understanding"
     ],
-    "rarity": "Legendary"
+    rarity: "Rare"
   },
   {
-    "id": "sword-of-solitude",
-    "name": "Sword of Solitude",
-    "alignment": "good",
-    "description": "A blade that brings peace and quiet to chaotic situations, symbolizing the need for balance and harmony.",
-    "price": 1600,
-    "image": "https://placehold.co/400x400/2d6a4f/ffd700?text=Sword+of+Solitude",
-    "magicalProperties": [
-      "Calms chaotic situations",
-      "Grants +2 to calming magic",
-      "Promotes peaceful resolution"
+    id: "orb-of-the-holy-sun",
+    name: "Orb of the Holy Sun",
+    alignment: "good",
+    description: "A radiant orb that emits the warmth and light of the sun, bringing hope and healing.",
+    price: 750,
+    image: "https://placehold.co/400x400/2d6a4f/ffd700?text=Orb+of+Holy+Sun",
+    magicalProperties: [
+      "Heals wounds with light",
+      "Provides warmth in cold areas",
+      "Protects against darkness"
     ],
-    "rarity": "Very Rare"
+    rarity: "Uncommon"
   },
   {
-    "id": "scroll-of-ascension",
-    "name": "Scroll of Ascension",
-    "alignment": "good",
-    "description": "A magical scroll that grants the user access to higher knowledge and enlightenment, guiding them toward greater good.",
-    "price": 400,
-    "image": "https://placehold.co/400x400/2d6a4f/ffd700?text=Scroll+of+Ascension",
-    "magicalProperties": [
-      "Grants enlightenment",
-      "Improves magical knowledge",
-      "Provides divine guidance"
+    id: "crown-of-the-sun-king",
+    name: "Crown of the Sun King",
+    alignment: "good",
+    description: "A royal crown that grants its wearer the power to command fire and light, with the strength of a king.",
+    price: 1900,
+    image: "https://placehold.co/400x400/2d6a4f/ffd700?text=Crown+of+Sun+King",
+    magicalProperties: [
+      "Command fire magic",
+      "Grant authority and leadership",
+      "Provides protection from dark magic"
     ],
-    "rarity": "Common"
+    rarity: "Legendary"
   },
   {
-    "id": "ring-of-protection",
-    "name": "Ring of Protection",
-    "alignment": "good",
-    "description": "A ring that provides constant protection for its wearer, making them immune to magical harm.",
-    "price": 900,
-    "image": "https://placehold.co/400x400/2d6a4f/ffd700?text=Ring+of+Protection",
-    "magicalProperties": [
-      "Provides magical protection",
-      "Grants immunity to spells",
-      "Reinforces defensive magic"
+    id: "staff-of-the-holy-forest",
+    name: "Staff of the Holy Forest",
+    alignment: "good",
+    description: "A staff that draws power from ancient forests, bringing harmony and protection to those who wield it.",
+    price: 1300,
+    image: "https://placehold.co/400x400/2d6a4f/ffd700?text=Staff+of+Holy+Forest",
+    magicalProperties: [
+      "Grants protection in nature",
+      "Heals wounds through natural magic",
+      "Protects from plant-based creatures"
     ],
-    "rarity": "Rare"
+    rarity: "Very Rare"
   },
   {
-    "id": "chalice-of-courage",
-    "name": "Chalice of Courage",
-    "alignment": "good",
-    "description": "A sacred chalice that grants its wielder the courage to face any challenge and overcome it with honor.",
-    "price": 1100,
-    "image": "https://placehold.co/400x400/2d6a4f/ffd700?text=Chalice+of+Courage",
-    "magicalProperties": [
-      "Grants courage",
-      "Improves heroic deeds",
-      "Strengthens mental fortitude"
+    id: "sickle-of-the-garden-god",
+    name: "Sickle of the Garden God",
+    alignment: "good",
+    description: "A sacred sickle that brings growth and prosperity to all who nurture the land with it.",
+    price: 550,
+    image: "https://placehold.co/400x400/2d6a4f/ffd700?text=Sickle+of+Garden+God",
+    magicalProperties: [
+      "Promotes plant growth",
+      "Heals living things",
+      "Creates protective barriers with nature"
     ],
-    "rarity": "Rare"
+    rarity: "Uncommon"
   },
   {
-    "id": "saddle-of-might",
-    "name": "Saddle of Might",
-    "alignment": "good",
-    "description": "A magical saddle that enhances the rider's strength and control, allowing them to traverse any terrain with ease.",
-    "price": 1400,
-    "image": "https://placehold.co/400x400/2d6a4f/ffd700?text=Saddle+of+Might",
-    "magicalProperties": [
-      "Enhances mount abilities",
-      "Grants +2 to riding skills",
-      "Provides magical stamina"
+    id: "amulet-of-the-just",
+    name: "Amulet of the Just",
+    alignment: "good",
+    description: "A symbol of justice that protects its wearer from corruption and guides them toward good choices.",
+    price: 650,
+    image: "https://placehold.co/400x400/2d6a4f/ffd700?text=Amulet+of+Just",
+    magicalProperties: [
+      "Prevents corruption",
+      "Guides towards good choices",
+      "Protects against evil influence"
     ],
-    "rarity": "Rare"
-  },
-
-  // Neutral Wands
-  {
-    "id": "staff-of-the-three-fates",
-    "name": "Staff of the Three Fates",
-    "alignment": "neutral",
-    "description": "A staff that represents the three fates and carries the wisdom to understand the balance between good and evil.",
-    "price": 1800,
-    "image": "https://placehold.co/400x400/4a4a6a/c0c0c0?text=Staff+of+the+Three+Fates",
-    "magicalProperties": [
-      "Grants understanding of fate",
-      "Balances magical powers",
-      "Provides clear vision of consequences"
-    ],
-    "rarity": "Very Rare"
-  },
-  {
-    "id": "scepter-of-the-harvest",
-    "name": "Scepter of the Harvest",
-    "alignment": "neutral",
-    "description": "A scepter symbolizing the cycles of life and death, representing the neutral forces of nature.",
-    "price": 950,
-    "image": "https://placehold.co/400x400/4a4a6a/c0c0c0?text=Scepter+of+the+Harvest",
-    "magicalProperties": [
-      "Grants control over nature",
-      "Balances life and death forces",
-      "Enhances agricultural magic"
-    ],
-    "rarity": "Rare"
-  },
-  {
-    "id": "orb-of-the-void",
-    "name": "Orb of the Void",
-    "alignment": "neutral",
-    "description": "A mysterious orb that draws power from the space between dimensions, maintaining balance between worlds.",
-    "price": 1100,
-    "image": "https://placehold.co/400x400/4a4a6a/c0c0c0?text=Orb+of+the+Void",
-    "magicalProperties": [
-      "Grants void magic",
-      "Creates dimensional portals",
-      "Maintains magical balance"
-    ],
-    "rarity": "Rare"
-  },
-  {
-    "id": "wand-of-the-star-wizard",
-    "name": "Wand of the Star Wizard",
-    "alignment": "neutral",
-    "description": "A wand that represents the magic of celestial bodies, allowing control over stellar phenomena.",
-    "price": 750,
-    "image": "https://placehold.co/400x400/4a4a6a/c0c0c0?text=Wand+of+the+Star+Wizard",
-    "magicalProperties": [
-      "Controls stellar energy",
-      "Grants star magic",
-      "Provides cosmic wisdom"
-    ],
-    "rarity": "Uncommon"
-  },
-  {
-    "id": "crystal-of-the-tower",
-    "name": "Crystal of the Tower",
-    "alignment": "neutral",
-    "description": "A crystal that connects to magical towers and structures, representing the neutral force of technology and wisdom.",
-    "price": 1000,
-    "image": "https://placehold.co/400x400/4a4a6a/c0c0c0?text=Crystal+of+the+Tower",
-    "magicalProperties": [
-      "Connects to magical structures",
-      "Grants access to wisdom",
-      "Enhances magical knowledge"
-    ],
-    "rarity": "Rare"
-  },
-  {
-    "id": "amulet-of-the-circle",
-    "name": "Amulet of the Circle",
-    "alignment": "neutral",
-    "description": "An amulet that represents the circle of life and the forces of both good and evil, maintaining balance.",
-    "price": 600,
-    "image": "https://placehold.co/400x400/4a4a6a/c0c0c0?text=Amulet+of+the+Circle",
-    "magicalProperties": [
-      "Maintains magical balance",
-      "Balances opposing forces",
-      "Provides protection from extremes"
-    ],
-    "rarity": "Common"
-  },
-  {
-    "id": "ring-of-duality",
-    "name": "Ring of Duality",
-    "alignment": "neutral",
-    "description": "A ring that embodies both light and darkness, reflecting the balance between opposing powers.",
-    "price": 1200,
-    "image": "https://placehold.co/400x400/4a4a6a/c0c0c0?text=Ring+of+Duality",
-    "magicalProperties": [
-      "Grants dual magical abilities",
-      "Balances opposing forces",
-      "Provides understanding of both sides"
-    ],
-    "rarity": "Rare"
-  },
-  {
-    "id": "potion-of-uncertainty",
-    "name": "Potion of Uncertainty",
-    "alignment": "neutral",
-    "description": "A mystical potion that allows the drinker to choose between two paths or outcomes.",
-    "price": 500,
-    "image": "https://placehold.co/400x400/4a4a6a/c0c0c0?text=Potion+of+Uncertainty",
-    "magicalProperties": [
-      "Grants uncertain magic",
-      "Provides choices",
-      "Introduces magical randomness"
-    ],
-    "rarity": "Common"
-  },
-  {
-    "id": "scroll-of-the-ancient",
-    "name": "Scroll of the Ancient",
-    "alignment": "neutral",
-    "description": "A scroll containing ancient wisdom that is neither good nor evil, but serves as guidance for balance.",
-    "price": 300,
-    "image": "https://placehold.co/400x400/4a4a6a/c0c0c0?text=Scroll+of+the+Ancient",
-    "magicalProperties": [
-      "Grants ancient wisdom",
-      "Provides balance",
-      "Gives insight into all paths"
-    ],
-    "rarity": "Common"
-  },
-  {
-    "id": "shield-of-the-giants",
-    "name": "Shield of the Giants",
-    "alignment": "neutral",
-    "description": "A shield that enhances the power of its wielder, representing the strong neutral force of giants.",
-    "price": 1600,
-    "image": "https://placehold.co/400x400/4a4a6a/c0c0c0?text=Shield+of+the+Giants",
-    "magicalProperties": [
-      "Enhances physical power",
-      "Grants protective force",
-      "Strengthens giant-like abilities"
-    ],
-    "rarity": "Very Rare"
-  },
-  {
-    "id": "gem-of-the-unknown",
-    "name": "Gem of the Unknown",
-    "alignment": "neutral",
-    "description": "A mysterious gem that holds unknown powers, representing the neutral unknown aspects of magic.",
-    "price": 880,
-    "image": "https://placehold.co/400x400/4a4a6a/c0c0c0?text=Gem+of+the+Unknown",
-    "magicalProperties": [
-      "Grants unknown magic",
-      "Provides magical mystery",
-      "Introduces powerful unknowns"
-    ],
-    "rarity": "Uncommon"
-  },
-  {
-    "id": "tome-of-the-wizards",
-    "name": "Tome of the Wizards",
-    "alignment": "neutral",
-    "description": "A comprehensive tome containing the knowledge of all wizards, without bias towards good or evil.",
-    "price": 1400,
-    "image": "https://placehold.co/400x400/4a4a6a/c0c0c0?text=Tome+of+the+Wizards",
-    "magicalProperties": [
-      "Grants universal knowledge",
-      "Provides unbiased wisdom",
-      "Offers all magical schools"
-    ],
-    "rarity": "Rare"
+    rarity: "Rare"
   },
 
-  // Evil Wands
+  // Neutral Alignment Wands
   {
-    "id": "staff-of-the-dragon-lord",
-    "name": "Staff of the Dragon Lord",
-    "alignment": "evil",
-    "description": "A staff that commands the power of dragons, representing dominion and control over all creatures.",
-    "price": 1900,
-    "image": "https://placehold.co/400x400/3d0000/ff4444?text=Staff+of+the+Dragon+Lord",
-    "magicalProperties": [
-      "Commands dragons",
-      "Grants mastery over creatures",
-      "Provides dominion magic"
+    id: "scepter-of-the-great-void",
+    name: "Scepter of the Great Void",
+    alignment: "neutral",
+    description: "A mysterious artifact that allows its wielder to manipulate the space between realities, bridging different worlds.",
+    price: 1700,
+    image: "https://placehold.co/400x400/4a4a6a/c0c0c0?text=Scepter+of+Void",
+    magicalProperties: [
+      "Allows travel between dimensions",
+      "Enhances understanding of magic",
+      "Provides protection from dimensional threats"
     ],
-    "rarity": "Legendary"
+    rarity: "Very Rare"
   },
   {
-    "id": "scepter-of-the-arch-mage",
-    "name": "Scepter of the Arch Mage",
-    "alignment": "evil",
-    "description": "A scepter of immense power, representing the control and domination of the arch mage over his realm.",
-    "price": 1700,
-    "image": "https://placehold.co/400x400/3d0000/ff4444?text=Scepter+of+the+Arch+Mage",
-    "magicalProperties": [
-      "Grants arch mage power",
-      "Provides domination magic",
-      "Offers extreme magical strength"
+    id: "rod-of-the-harmonic-mind",
+    name: "Rod of the Harmonic Mind",
+    alignment: "neutral",
+    description: "A magical rod that allows its wielder to perceive and influence the thoughts of others in subtle ways.",
+    price: 800,
+    image: "https://placehold.co/400x400/4a4a6a/c0c0c0?text=Rod+of+Harmonic+Mind",
+    magicalProperties: [
+      "Reads minds at a distance",
+      "Influences thought patterns",
+      "Enhances understanding of others"
     ],
-    "rarity": "Very Rare"
+    rarity: "Rare"
   },
   {
-    "id": "wand-of-the-void-dragon",
-    "name": "Wand of the Void Dragon",
-    "alignment": "evil",
-    "description": "A wand that harnesses the power of the void dragon, a creature of destruction and chaos.",
-    "price": 1500,
-    "image": "https://placehold.co/400x400/3d0000/ff4444?text=Wand+of+the+Void+Dragon",
-    "magicalProperties": [
-      "Harnesses void dragon power",
-      "Grants destruction magic",
-      "Provides chaotic strength"
+    id: "wand-of-the-ancient-keeper",
+    name: "Wand of the Ancient Keeper",
+    alignment: "neutral",
+    description: "A staff of ancient wisdom that holds knowledge of the past while allowing the wielder to access forgotten lore.",
+    price: 1400,
+    image: "https://placehold.co/400x400/4a4a6a/c0c0c0?text=Wand+of+Ancient+Keeper",
+    magicalProperties: [
+      "Accesses ancient knowledge",
+      "Grants understanding of past events",
+      "Provides protection from knowledge-related dangers"
     ],
-    "rarity": "Very Rare"
+    rarity: "Very Rare"
   },
   {
-    "id": "crystal-of-the-darkness",
-    "name": "Crystal of the Darkness",
-    "alignment": "evil",
-    "description": "A crystal that draws power from the depths of darkness, representing the shadow forces of evil.",
-    "price": 1300,
-    "image": "https://placehold.co/400x400/3d0000/ff4444?text=Crystal+of+the+Darkness",
-    "magicalProperties": [
-      "Grants darkness magic",
-      "Provides shadow power",
-      "Introduces evil force"
+    id: "crystal-of-the-universal-singer",
+    name: "Crystal of the Universal Singer",
+    alignment: "neutral",
+    description: "A crystal that allows its wielder to sense the harmony or discord in all living things, bringing balance to chaos.",
+    price: 650,
+    image: "https://placehold.co/400x400/4a4a6a/c0c0c0?text=Crystal+of+Universal+Singer",
+    magicalProperties: [
+      "Detects harmony and discord",
+      "Bridges conflicting ideologies",
+      "Provides insight into complex situations"
     ],
-    "rarity": "Rare"
+    rarity: "Uncommon"
   },
   {
-    "id": "orb-of-the-demons",
-    "name": "Orb of the Demons",
-    "alignment": "evil",
-    "description": "A powerful orb that connects to demon powers, drawing on the strength of evil forces.",
-    "price": 1200,
-    "image": "https://placehold.co/400x400/3d0000/ff4444?text=Orb+of+the+Demons",
-    "magicalProperties": [
-      "Connects to demon power",
-      "Grants demonic strength",
-      "Provides evil force"
+    id: "staff-of-the-archivist",
+    name: "Staff of the Archivist",
+    alignment: "neutral",
+    description: "A powerful staff that can store and recall knowledge from all corners of existence, aiding its wielder with universal understanding.",
+    price: 1900,
+    image: "https://placehold.co/400x400/4a4a6a/c0c0c0?text=Staff+of+Archivist",
+    magicalProperties: [
+      "Stores vast amounts of knowledge",
+      "Retrieves information instantly",
+      "Protects against knowledge loss"
     ],
-    "rarity": "Rare"
+    rarity: "Legendary"
   },
   {
-    "id": "mace-of-the-darkness",
-    "name": "Mace of the Darkness",
-    "alignment": "evil",
-    "description": "A weapon that embodies the darkness of the night and the cruel power of evil forces.",
-    "price": 1800,
-    "image": "https://placehold.co/400x400/3d0000/ff4444?text=Mace+of+the+Darkness",
-    "magicalProperties": [
-      "Grants darkness power",
-      "Introduces cruel force",
-      "Provides evil strength"
+    id: "orb-of-the-ancient-guardian",
+    name: "Orb of the Ancient Guardian",
+    alignment: "neutral",
+    description: "A magical orb that provides protection from the passage of time and ancient forces that threaten the balance.",
+    price: 1100,
+    image: "https://placehold.co/400x400/4a4a6a/c0c0c0?text=Orb+of+Ancient+Guardian",
+    magicalProperties: [
+      "Protects against temporal changes",
+      "Detects ancient threats",
+      "Maintains the balance of magical forces"
     ],
-    "rarity": "Very Rare"
+    rarity: "Rare"
   },
   {
-    "id": "amulet-of-the-devil",
-    "name": "Amulet of the Devil",
-    "alignment": "evil",
-    "description": "An amulet that grants the power of the devil, representing the ultimate manifestation of evil.",
-    "price": 2000,
-    "image": "https://placehold.co/400x400/3d0000/ff4444?text=Amulet+of+the+Devil",
-    "magicalProperties": [
-      "Grants devil power",
-      "Provides ultimate evil force",
-      "Introduces demonic strength"
+    id: "crown-of-the-archmage",
+    name: "Crown of the Archmage",
+    alignment: "neutral",
+    description: "A crown worn by the wisest of mages, empowering its wearer with the understanding of magic's true nature.",
+    price: 1800,
+    image: "https://placehold.co/400x400/4a4a6a/c0c0c0?text=Crown+of+Archmage",
+    magicalProperties: [
+      "Grants deep understanding of magic",
+      "Enhances spellcasting abilities",
+      "Provides protection from magical interference"
     ],
-    "rarity": "Legendary"
+    rarity: "Very Rare"
   },
   {
-    "id": "ring-of-the-sorcerer",
-    "name": "Ring of the Sorcerer",
-    "alignment": "evil",
-    "description": "A ring that bestows the powers of a great sorcerer, representing the control over magic.",
-    "price": 1600,
-    "image": "https://placehold.co/400x400/3d0000/ff4444?text=Ring+of+the+Norcerer",
-    "magicalProperties": [
-      "Grants sorcerer power",
-      "Provides magical control",
-      "Introduces powerful force"
+    id: "sickle-of-the-seasons",
+    name: "Sickle of the Seasons",
+    alignment: "neutral",
+    description: "A magical sickle that allows its wielder to influence the flow of the seasons and bring balance to the natural order.",
+    price: 900,
+    image: "https://placehold.co/400x400/4a4a6a/c0c0c0?text=Sickle+of+Seasons",
+    magicalProperties: [
+      "Controls seasonal cycles",
+      "Maintains natural balance",
+      "Provides protection from seasonal threats"
     ],
-    "rarity": "Rare"
+    rarity: "Rare"
   },
   {
-    "id": "scroll-of-doom",
-    "name": "Scroll of Doom",
-    "alignment": "evil",
-    "description": "A dark scroll that brings doom and destruction upon those who read it, representing the ultimate evil.",
-    "price": 450,
-    "image": "https://placehold.co/400x400/3d0000/ff4444?text=Scroll+of+Doom",
-    "magicalProperties": [
-      "Grants doom magic",
-      "Brings destruction",
-      "Introduces death force"
+    id: "amulet-of-the-neutral-path",
+    name: "Amulet of the Neutral Path",
+    alignment: "neutral",
+    description: "A symbol of balance that allows its wearer to walk the middle path, avoiding extreme positions.",
+    price: 500,
+    image: "https://placehold.co/400x400/4a4a6a/c0c0c0?text=Amulet+of+Neutral+Path",
+    magicalProperties: [
+      "Maintains balance in choices",
+      "Prevents extreme emotions",
+      "Encourages compromise and moderation"
     ],
-    "rarity": "Uncommon"
+    rarity: "Uncommon"
   },
   {
-    "id": "potion-of-the-darkness",
-    "name": "Potion of the Darkness",
-    "alignment": "evil",
-    "description": "A potion that grants temporary power of darkness, representing the temporary use of evil magic.",
-    "price": 550,
-    "image": "https://placehold.co/400x400/3d0000/ff4444?text=Potion+of+the+Darkness",
-    "magicalProperties": [
-      "Grants darkness power",
-      "Provides evil magic",
-      "Introduces temporary force"
+    id: "wand-of-the-void-singer",
+    name: "Wand of the Void Singer",
+    alignment: "neutral",
+    description: "A wand that allows its wielder to sing with the void, creating resonances that connect to distant places and entities.",
+    price: 1000,
+    image: "https://placehold.co/400x400/4a4a6a/c0c0c0?text=Wand+of+Void+Song",
+    magicalProperties: [
+      "Connects to distant locations",
+      "Communicates with void beings",
+      "Creates harmonics that influence fate"
     ],
-    "rarity": "Common"
+    rarity: "Rare"
   },
   {
-    "id": "gem-of-the-dragon",
-    "name": "Gem of the Dragon",
-    "alignment": "evil",
-    "description": "A gem that holds the power of dragons, representing the dominance of the draconic race.",
-    "price": 1100,
-    "image": "https://placehold.co/400x400/3d0000/ff4444?text=Gem+of+the+Dragon",
-    "magicalProperties": [
-      "Grants dragon power",
-      "Provides draconic strength",
-      "Introduces dominant force"
+    id: "staff-of-the-cosmic-heart",
+    name: "Staff of the Cosmic Heart",
+    alignment: "neutral",
+    description: "A staff that channels the rhythm of the universe, bringing clarity and harmony to its wielder's thoughts.",
+    price: 1500,
+    image: "https://placehold.co/400x400/4a4a6a/c0c0c0?text=Staff+of+Cosmic+Heart",
+    magicalProperties: [
+      "Grants cosmic awareness",
+      "Provides understanding of universal patterns",
+      "Brings clarity to complex situations"
     ],
-    "rarity": "Rare"
+    rarity: "Very Rare"
   },
   {
-    "id": "tome-of-the-doomed",
-    "name": "Tome of the Doomed",
-    "alignment": "evil",
-    "description": "A tome that contains the knowledge of the doomed, representing the despair and evil of those who have fallen.",
-    "price": 1500,
-    "image": "https://placehold.co/400x400/3d0000/ff4444?text=Tome+of+the+Doomed",
-    "magicalProperties": [
-      "Grants doomed knowledge",
-      "Provides despair magic",
-      "Introduces dark wisdom"
+    id: "crystal-of-the-forgotten",
+    name: "Crystal of the Forgotten",
+    alignment: "neutral",
+    description: "A crystal that can uncover hidden knowledge or forgotten memories from the past.",
+    price: 700,
+    image: "https://placehold.co/400x400/4a4a6a/c0c0c0?text=Crystal+of+Forgotten",
+    magicalProperties: [
+      "Uncovers hidden memories",
+      "Reveals forgotten knowledge",
+      "Protects against memory loss"
     ],
-    "rarity": "Very Rare"
+    rarity: "Uncommon"
+  },
+
+  // Evil Alignment Wands
+  {
+    id: "staff-of-the-night-dragon",
+    name: "Staff of the Night Dragon",
+    alignment: "evil",
+    description: "A staff imbued with the power of shadow dragons that grants its wielder darkness and the ability to command the night.",
+    price: 1900,
+    image: "https://placehold.co/400x400/3d0000/ff4444?text=Staff+of+Night+Dragon",
+    magicalProperties: [
+      "Grants command of darkness",
+      "Enhances stealth abilities",
+      "Provides protection from light-based magic"
+    ],
+    rarity: "Legendary"
   },
   {
-    "id": "soul-stealer",
-    "name": "Soul Stealer",
-    "alignment": "evil",
-    "description": "A sinister wand that draws the life force from its victims, feeding the wielder with dark power.",
-    "price": 1400,
-    "image": "https://placehold.co/400x400/3d0000/ff4444?text=Soul+Stealer",
-    "magicalProperties": [
-      "Steals life force",
-      "Grants dark power",
-      "Introduces necrotic magic"
+    id: "wand-of-the-void-lord",
+    name: "Wand of the Void Lord",
+    alignment: "evil",
+    description: "A powerful wand that draws upon the power of void lords, granting its wielder the ability to corrupt and destroy.",
+    price: 1200,
+    image: "https://placehold.co/400x400/3d0000/ff4444?text=Wand+of+Void+Lord",
+    magicalProperties: [
+      "Corrupts living beings",
+      "Drains life energy",
+      "Enhances destructive magic"
     ],
-    "rarity": "Rare"
+    rarity: "Very Rare"
+  },
+  {
+    id: "rod-of-the-shadow-king",
+    name: "Rod of the Shadow King",
+    alignment: "evil",
+    description: "A rod that commands the powers of shadow kings, allowing its wielder to manipulate fear and darkness.",
+    price: 1600,
+    image: "https://placehold.co/400x400/3d0000/ff4444?text=Rod+of+Shadow+King",
+    magicalProperties: [
+      "Commands fear effects",
+      "Control shadows and darkness",
+      "Grants dominance over lesser beings"
+    ],
+    rarity: "Very Rare"
+  },
+  {
+    id: "crown-of-the-demon-lord",
+    name: "Crown of the Demon Lord",
+    alignment: "evil",
+    description: "A crown worn by demon lords, granting its wearer immense power and the ability to command other evil beings.",
+    price: 2000,
+    image: "https://placehold.co/400x400/3d0000/ff4444?text=Crown+of+Demon+Lord",
+    magicalProperties: [
+      "Commands demonic beings",
+      "Grants control over dark magic",
+      "Enhances physical strength"
+    ],
+    rarity: "Legendary"
+  },
+  {
+    id: "orb-of-the-void-crypt",
+    name: "Orb of the Void Crypt",
+    alignment: "evil",
+    description: "An orb that holds the power of ancient void crypts, allowing its wielder to draw power from the dead.",
+    price: 1500,
+    image: "https://placehold.co/400x400/3d0000/ff4444?text=Orb+of+Void+Crypt",
+    magicalProperties: [
+      "Draws power from the dead",
+      "Provides healing through dark magic",
+      "Allows communication with spirits"
+    ],
+    rarity: "Very Rare"
+  },
+  {
+    id: "sickle-of-the-undying",
+    name: "Sickle of the Undying",
+    alignment: "evil",
+    description: "A sickle of dark powers that grants its wielder immortality and the ability to command the undead.",
+    price: 1300,
+    image: "https://placehold.co/400x400/3d0000/ff4444?text=Sickle+of+Undying",
+    magicalProperties: [
+      "Grants limited immortality",
+      "Controls undead creatures",
+      "Enhances resistance to death effects"
+    ],
+    rarity: "Rare"
+  },
+  {
+    id: "crystal-of-the-doomed",
+    name: "Crystal of the Doomed",
+    alignment: "evil",
+    description: "A crystal that brings about the downfall of others, causing those who see it to meet their fate.",
+    price: 600,
+    image: "https://placehold.co/400x400/3d0000/ff4444?text=Crystal+of+Doomed",
+    magicalProperties: [
+      "Brings doom upon enemies",
+      "Causes death through vision",
+      "Drains life force from nearby beings"
+    ],
+    rarity: "Uncommon"
+  },
+  {
+    id: "amulet-of-the-cursed",
+    name: "Amulet of the Cursed",
+    alignment: "evil",
+    description: "A cursed amulet that brings misfortune to its wearer's enemies while slowly corrupting the bearer.",
+    price: 400,
+    image: "https://placehold.co/400x400/3d0000/ff4444?text=Amulet+of+Cursed",
+    magicalProperties: [
+      "Blesses enemies with misfortune",
+      "Corrupts the wearer",
+      "Enhances the power of curses"
+    ],
+    rarity: "Common"
+  },
+  {
+    id: "scepter-of-the-dead-king",
+    name: "Scepter of the Dead King",
+    alignment: "evil",
+    description: "A scepter that holds the power of dead kings, commanding the spirits of the fallen and bringing ruin to the living.",
+    price: 1000,
+    image: "https://placehold.co/400x400/3d0000/ff4444?text=Scepter+of+Dead+King",
+    magicalProperties: [
+      "Commands spirits of the dead",
+      "Brings ruin to the living",
+      "Grants power over death and decay"
+    ],
+    rarity: "Rare"
+  },
+  {
+    id: "staff-of-the-mortal-king",
+    name: "Staff of the Mortal King",
+    alignment: "evil",
+    description: "A staff that channels the power of mortal kings who ruled through fear, granting its wielder dominion and control.",
+    price: 800,
+    image: "https://placehold.co/400x400/3d0000/ff4444?text=Staff+of+Mortal+King",
+    magicalProperties: [
+      "Grants control over others",
+      "Enhances fear effects",
+      "Provides protection from rebellion"
+    ],
+    rarity: "Rare"
+  },
+  {
+    id: "wand-of-the-cursed-land",
+    name: "Wand of the Cursed Land",
+    alignment: "evil",
+    description: "A wand that corrupts the land and turns it into a cursed realm where only darkness and decay thrive.",
+    price: 700,
+    image: "https://placehold.co/400x400/3d0000/ff4444?text=Wand+of+Cursed+Land",
+    magicalProperties: [
+      "Corrupts the environment",
+      "Creates cursed areas",
+      "Enhances control over dark lands"
+    ],
+    rarity: "Uncommon"
+  },
+  {
+    id: "sickle-of-the-nightmare",
+    name: "Sickle of the Nightmare",
+    alignment: "evil",
+    description: "A sickle that draws power from nightmares, bringing terror and despair to those who face its wielder.",
+    price: 500,
+    image: "https://placehold.co/400x400/3d0000/ff4444?text=Sickle+of+Nightmare",
+    magicalProperties: [
+      "Inflicts nightmares",
+      "Tears down courage",
+      "Grants power through fear"
+    ],
+    rarity: "Common"
   }
 ];

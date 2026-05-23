@@ -1,19 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './HomePage.css';
 
 const HomePage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [goldBalance, setGoldBalance] = useState(1000);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  useEffect(() => {
+    const balance = localStorage.getItem('fizban_gold_balance');
+    if (balance) {
+      setGoldBalance(parseInt(balance));
+    }
+  }, []);
 
   return (
     <div className="home-page">
       <nav className="navbar">
         <div className="navbar-container">
           <Link to="/" className="navbar-brand">Fizban's Wands</Link>
+          <div className="navbar-gold">
+            💰 {goldBalance} GP
+          </div>
           <div className="hamburger" onClick={toggleMenu}>
             <span></span>
             <span></span>

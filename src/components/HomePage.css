@@ -1,8 +1,93 @@
-.home-page {
-  min-height: 100vh;
-  background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
-  color: var(--text-color);
-  padding: 80px 20px 20px;
+.navbar {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 15px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  color: var(--accent-color);
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: var(--gold-glow);
+}
+
+.navbar-gold {
+  color: gold;
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.navbar-menu {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.navbar-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar-menu a:hover {
+  color: var(--accent-color);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 3px 0;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .navbar-menu {
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+    padding: 20px 0;
+  }
+
+  .navbar-menu.active {
+    left: 0;
+  }
+
+  .hamburger {
+    display: flex;
+  }
 }
 
 .home-header {

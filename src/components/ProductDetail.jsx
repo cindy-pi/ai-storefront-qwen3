@@ -1,0 +1,141 @@
+import React, { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import './ProductDetail.css';
+
+const ProductDetail = () => {
+  const { id } = useParams();
+  const [product, setProduct] = useState(null);
+  const [quantity, setQuantity] = useState(1);
+
+  // Mock product data - this will be replaced with actual data from issue #2
+  useEffect(() => {
+    // Mock data - will be replaced with real data
+    const mockProduct = {
+      id: parseInt(id),
+      name: 'Acacia Wand',
+      alignment: 'good',
+      price: 250,
+      image: 'wand1.jpg',
+      description: 'A magnificent wand made from rare acacia wood, perfectly balanced and enchanted with powerful magical properties.',
+      woodType: 'Acacia',
+      core: 'Phoenix feather',
+      length: '10 inches',
+      flexibility: 'Flexible',
+      history: 'This wand was crafted by renowned wandmaker Garrick Ollivander and was once owned by a great wizard who used it to cast protective spells.',
+      properties: [
+        'Enhances charm magic',
+        'Improves transfiguration skills',
+        'Boosts defensive spells'
+      ]
+    };
+    
+    setProduct(mockProduct);
+  }, [id]);
+
+  const getAlignmentClass = (alignment) => {
+    switch (alignment) {
+      case 'good': return 'good-alignment';
+      case 'neutral': return 'neutral-alignment';
+      case 'evil': return 'evil-alignment';
+      default: return '';
+    }
+  };
+
+  const getAlignmentLabel = (alignment) => {
+    switch (alignment) {
+      case 'good': return 'Good';
+      case 'neutral': return 'Neutral';
+      case 'evil': return 'Evil';
+      default: return alignment;
+    }
+  };
+
+  if (!product) {
+    return (
+      <div className="product-detail">
+        <p>Loading product details...</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="product-detail">
+      <div className="product-detail-header">
+        <Link to="/catalog" className="back-link">
+          ← Back to Catalog
+        </Link>
+        <h1>{product.name}</h1>
+      </div>
+      
+      <div className="product-detail-content">
+        <div className="product-image">
+          <div className="product-image-placeholder">Wand Image</div>
+        </div>
+        
+        <div className="product-info">
+          <div className="product-details">
+            <div className="product-meta">
+              <span className={`alignment-badge ${getAlignmentClass(product.alignment)}`}>
+                {getAlignmentLabel(product.alignment)}
+              </span>
+              <span className="product-price">GP {product.price}</span>
+            </div>
+            
+            <p className="product-description">{product.description}</p>
+            
+            <div className="product-specs">
+              <div className="spec">
+                <span className="spec-label">Wood Type:</span>
+                <span className="spec-value">{product.woodType}</span>
+              </div>
+              <div className="spec">
+                <span className="spec-label">Core:</span>
+                <span className="spec-value">{product.core}</span>
+              </div>
+              <div className="spec">
+                <span className="spec-label">Length:</span>
+                <span className="spec-value">{product.length}</span>
+              </div>
+              <div className="spec">
+                <span className="spec-label">Flexibility:</span>
+                <span className="spec-value">{product.flexibility}</span>
+              </div>
+            </div>
+            
+            <div className="product-history">
+              <h3>Wand History</h3>
+              <p>{product.history}</p>
+            </div>
+            
+            <div className="product-properties">
+              <h3>Magical Properties</h3>
+              <ul>
+                {product.properties.map((property, index) => (
+                  <li key={index}>{property}</li>
+                ))}
+              </ul>
+            </div>
+            
+            <div className="product-controls">
+              <div className="quantity-control">
+                <label htmlFor="quantity">Quantity:</label>
+                <input 
+                  type="number" 
+                  id="quantity"
+                  min="1" 
+                  value={quantity} 
+                  onChange={(e) => setQuantity(parseInt(e.target.value) || 1)}
+                />
+              </div>
+              <button className="add-to-cart-button">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ProductDetail;

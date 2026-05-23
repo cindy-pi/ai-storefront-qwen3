@@ -1,0 +1,124 @@
+.home-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #e6e6e6;
+  padding: 20px;
+}
+
+.home-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 20px 0;
+}
+
+.home-header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.home-header p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+.hero-section {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  padding: 40px;
+  margin-bottom: 40px;
+  text-align: center;
+  border: 1px solid #ffd700;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+.hero-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #ffd700;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-button {
+  display: inline-block;
+  background: #ffd700;
+  color: #1a1a2e;
+  padding: 15px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  background: #ffc400;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+}
+
+.featured-section {
+  margin-bottom: 40px;
+}
+
+.featured-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #ffd700;
+}
+
+.featured-wands {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.wand-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.wand-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.wand-image-placeholder {
+  width: 100%;
+  height: 150px;
+  background: rgba(255, 215, 0, 0.1);
+  border-radius: 8px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffd700;
+  font-weight: bold;
+}
+
+.wand-card h3 {
+  margin: 10px 0;
+  color: #ffd700;
+}
+
+.wand-card p {
+  margin: 10px 0;
+  color: #ccc;
+  font-size: 0.9rem;
+}

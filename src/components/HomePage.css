@@ -1,8 +1,8 @@
 .home-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  color: #e6e6e6;
-  padding: 20px;
+  background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+  color: var(--text-color);
+  padding: 80px 20px 20px;
 }
 
 .home-header {
@@ -14,8 +14,8 @@
 .home-header h1 {
   font-size: 3rem;
   margin-bottom: 10px;
-  color: #ffd700;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  color: var(--accent-color);
+  text-shadow: var(--gold-glow);
 }
 
 .home-header p {
@@ -24,19 +24,34 @@
 }
 
 .hero-section {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.4);
   border-radius: 15px;
-  padding: 40px;
+  padding: 50px;
   margin-bottom: 40px;
   text-align: center;
-  border: 1px solid #ffd700;
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+  border: 1px solid var(--accent-color);
+  box-shadow: var(--page-glow);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.1) 0%, transparent 20%),
+    radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.1) 0%, transparent 20%);
+  pointer-events: none;
 }
 
 .hero-content h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color: #ffd700;
+  color: var(--accent-color);
 }
 
 .hero-content p {
@@ -49,8 +64,8 @@
 
 .cta-button {
   display: inline-block;
-  background: #ffd700;
-  color: #1a1a2e;
+  background: var(--accent-color);
+  color: var(--primary-bg);
   padding: 15px 30px;
   border-radius: 30px;
   text-decoration: none;
@@ -59,10 +74,12 @@
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
+  box-shadow: var(--gold-glow);
+  border: 1px solid var(--accent-color);
 }
 
 .cta-button:hover {
-  background: #ffc400;
+  background: var(--accent-color-dark);
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
 }
@@ -75,7 +92,7 @@
   text-align: center;
   font-size: 2rem;
   margin-bottom: 30px;
-  color: #ffd700;
+  color: var(--accent-color);
 }
 
 .featured-wands {
@@ -91,12 +108,27 @@
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid rgba(255, 215, 0, 0.2);
+  position: relative;
+  overflow: hidden;
 }
 
 .wand-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
   background: rgba(255, 255, 255, 0.08);
+}
+
+.wand-card:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid var(--accent-color);
+  border-radius: 10px;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .wand-image-placeholder {
@@ -108,13 +140,29 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffd700;
+  color: var(--accent-color);
   font-weight: bold;
+  position: relative;
+  overflow: hidden;
+}
+
+.wand-image-placeholder::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(45deg, transparent 49%, rgba(255, 215, 0, 0.1) 50%, transparent 51%),
+    linear-gradient(-45deg, transparent 49%, rgba(255, 215, 0, 0.1) 50%, transparent 51%);
+  background-size: 20px 20px;
+  z-index: 0;
 }
 
 .wand-card h3 {
   margin: 10px 0;
-  color: #ffd700;
+  color: var(--accent-color);
 }
 
 .wand-card p {

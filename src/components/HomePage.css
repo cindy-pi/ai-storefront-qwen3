@@ -186,6 +186,55 @@
   gap: 25px;
 }
 
+.about-section {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, transparent 49%, rgba(255, 215, 0, 0.1) 50%, transparent 51%),
+    linear-gradient(0deg, transparent 49%, rgba(255, 215, 0, 0.1) 50%, transparent 51%);
+  background-size: 20px 20px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.about-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--accent-color);
+  position: relative;
+  z-index: 1;
+}
+
+.about-section p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+  color: #ccc;
+  position: relative;
+  z-index: 1;
+}
+
+.home-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
 .wand-card {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 10px;

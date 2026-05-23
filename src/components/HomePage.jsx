@@ -81,6 +81,19 @@ const HomePage = () => {
           </div>
         </section>
         
+        <section className="about-section">
+          <h2>About the Shop</h2>
+          <p>
+            Welcome to Fizban's Wands, where magic comes to life! We specialize in creating the finest wands crafted by 
+            master wandmakers. Our collection includes wands for all magical disciplines, from novice to master level, 
+            each handcrafted to perfection with magical properties and history.
+          </p>
+          <p>
+            Whether you're a young wizard starting your journey or a seasoned master seeking the perfect wand to 
+            complement your spellwork, our shop has the enchanted wand to fulfill your needs.
+          </p>
+        </section>
+        
         <section className="featured-section">
           <h2>Featured Wands</h2>
           <div className="featured-wands">
